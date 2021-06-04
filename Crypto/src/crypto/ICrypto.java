@@ -24,8 +24,8 @@ public interface ICrypto {
     //Cette Méthode permet de stocké la clé
     /**
      * 
-     * @param key
-     * @param filePath
+     * @param key: La clé générée
+     * @param filePath: Le chemin
      * @return 
      */
     public String saveKey(SecretKey key, String filePath);
