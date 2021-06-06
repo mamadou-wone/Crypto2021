@@ -25,15 +25,15 @@ public interface ICrypto {
     /**
      * 
      * @param key: La clé générée
-     * @param filePath: Le chemin
-     * @return 
+     * @param filePath: Le chemin choisi pour stocker le fichier contenant la clé
+     * @return : Le chemin choisi
      */
     public String saveKey(SecretKey key, String filePath);
     
     /**
      * 
-     * @param filePath
-     * @return 
+     * @param filePath: Le chemin du fichier où est stocké notre clé
+     * @return : La clé contenue dans le fichier
      */
     public SecretKey getKey(String filePath);
 }

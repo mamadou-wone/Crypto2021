@@ -5,6 +5,12 @@
  */
 package crypto;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,12 +38,30 @@ public class CryptoImpl implements ICrypto{
 
     @Override
     public String saveKey(SecretKey key, String filePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            FileOutputStream fos = new FileOutputStream(filePath);
+            ObjectOutputStream obj = new ObjectOutputStream(fos);
+            obj.writeObject(key);
+            obj.close();
+            fos.close();
+            return filePath;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } 
+        return null;
     }
 
     @Override
     public SecretKey getKey(String filePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            SecretKey key = (SecretKey) ois.readObject();
+            return key;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     
