@@ -12,7 +12,7 @@ import javax.crypto.SecretKey;
  * @author mamadou
  */
 public interface ICrypto {
-    
+    //Hello TDSI
     /**
      * Cette Méthode permet de générer une clé 
      * @param algo : L'algorithme de chiffrement (ex:"AES","DES")
